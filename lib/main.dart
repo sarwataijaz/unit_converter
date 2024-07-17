@@ -82,7 +82,7 @@ class _MyHomePageState extends State<MyHomePage> {
     _selectedUnitValue = 'Length';
     _selectedSubUnitValue1 = _currentList[0];
     _selectedSubUnitValue2 =
-        _currentList[1]; // Ensure this is valid for initial load
+    _currentList[1]; // Ensure this is valid for initial load
   }
 
   void _checkUnits(String value) {
@@ -98,215 +98,153 @@ class _MyHomePageState extends State<MyHomePage> {
       } else {
         _currentList = _lengthUnits;
       }
+      _selectedSubUnitValue1 = _currentList[0];
+      _selectedSubUnitValue2 = _currentList[1];
+
       _controller1.text = '';
       _controller2.text = '';
     });
-
   }
 
   String recentlyTyped = '';
 
   @override
   Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
-    final screenHeight = MediaQuery.of(context).size.height;
+    final screenWidth = MediaQuery
+        .of(context)
+        .size
+        .width;
+    final screenHeight = MediaQuery
+        .of(context)
+        .size
+        .height;
 
     return Scaffold(
       backgroundColor: Color(0xFFFEDD9E),
-      body: SingleChildScrollView(
-        scrollDirection: Axis.vertical,
-        child: Container(
+      body: Container(
           width: screenWidth,
           height: screenHeight,
           child: Padding(
             padding: EdgeInsets.only(top: 30.sp, left: 15.sp, right: 15.sp),
-            child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.only(),
-                        child: RichText(
-                            text: TextSpan(children: [
-                          TextSpan(
-                            text: "U",
-                            style: GoogleFonts.shrikhand(
-                                textStyle: TextStyle(
-                                    color: Color(0xFFCC800E),
-                                    fontSize: 28.sp,
-                                    decoration: TextDecoration.underline),
-                                fontWeight: FontWeight.bold),
-                          ),
-                          TextSpan(
-                            text: "nit  ",
-                            style: GoogleFonts.shrikhand(
-                                textStyle: TextStyle(
-                                  color: Color(0xFFCC800E),
-                                  fontSize: 26.sp,
+            child: SingleChildScrollView(
+              scrollDirection: Axis.vertical,
+              child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.only(),
+                          child: RichText(
+                              text: TextSpan(children: [
+                                TextSpan(
+                                  text: "U",
+                                  style: GoogleFonts.shrikhand(
+                                      textStyle: TextStyle(
+                                          color: Color(0xFFCC800E),
+                                          fontSize: 28.sp,
+                                          decoration: TextDecoration.underline),
+                                      fontWeight: FontWeight.bold),
                                 ),
-                                fontWeight: FontWeight.w700),
-                          ),
-                          TextSpan(
-                            text: "C",
-                            style: GoogleFonts.shrikhand(
-                                textStyle: TextStyle(
-                                    color: Color(0xFFCC800E),
-                                    fontSize: 28.sp,
-                                    decoration: TextDecoration.underline),
-                                fontWeight: FontWeight.bold),
-                          ),
-                          TextSpan(
-                            text: "onverter",
-                            style: GoogleFonts.shrikhand(
-                                textStyle: TextStyle(
-                                  color: Color(0xFFCC800E),
-                                  fontSize: 26.sp,
+                                TextSpan(
+                                  text: "nit  ",
+                                  style: GoogleFonts.shrikhand(
+                                      textStyle: TextStyle(
+                                        color: Color(0xFFCC800E),
+                                        fontSize: 26.sp,
+                                      ),
+                                      fontWeight: FontWeight.w700),
                                 ),
-                                fontWeight: FontWeight.w700),
-                          ),
-                        ])),
-                      ),
-                    ],
-                  ),
-                  Padding(
-                    padding:
-                        EdgeInsets.only(top: 20.sp, left: 15.sp, right: 15.sp),
-                    child: Container(
-                      width: screenWidth,
-                      height: 15.h,
-                      decoration: BoxDecoration(
-                          shape: BoxShape.rectangle,
-                          borderRadius: BorderRadius.circular(8.0),
-                          color: Color(0xFFFFF1D4)),
-                      alignment: Alignment.center,
-                      child: Padding(
-                        padding: EdgeInsets.only(
-                            top: 20.sp,
-                            bottom: 20.sp,
-                            left: 20.sp,
-                            right: 20.sp),
-                        child: Container(
-                          height: 10.h,
-                          decoration: BoxDecoration(
-                              shape: BoxShape.rectangle,
-                              borderRadius: BorderRadius.circular(15.0),
-                              color: Color(0xFFFEFEFE)),
-                          child: DropdownButton(
-                            value: _selectedUnitValue,
-                            elevation: 10,
-                            style: TextStyle(color: Colors.black),
-                            onChanged: (String? value) {
-                              setState(() {
-                                _selectedUnitValue = value!;
-                                _checkUnits(_selectedUnitValue);
-                              });
-                            },
-                            isExpanded: true,
-                            padding: EdgeInsets.all(20.0.sp),
-                            iconEnabledColor: Color(0xFFFFBC57),
-                            iconSize: 35,
-                            underline: Container(),
-                            // Remove the underline
-                            dropdownColor: Colors.white,
-                            items: _allUnits.map((String value) {
-                              return DropdownMenuItem(
-                                value: value,
-                                child: Center(
-                                    child: Text(value,
-                                        style: GoogleFonts.actor(
-                                            textStyle:
-                                                TextStyle(fontSize: 20.sp),
-                                            fontWeight: FontWeight.bold))),
-                              );
-                            }).toList(),
+                                TextSpan(
+                                  text: "C",
+                                  style: GoogleFonts.shrikhand(
+                                      textStyle: TextStyle(
+                                          color: Color(0xFFCC800E),
+                                          fontSize: 28.sp,
+                                          decoration: TextDecoration.underline),
+                                      fontWeight: FontWeight.bold),
+                                ),
+                                TextSpan(
+                                  text: "onverter",
+                                  style: GoogleFonts.shrikhand(
+                                      textStyle: TextStyle(
+                                        color: Color(0xFFCC800E),
+                                        fontSize: 26.sp,
+                                      ),
+                                      fontWeight: FontWeight.w700),
+                                ),
+                              ])),
+                        ),
+                      ],
+                    ),
+                    Padding(
+                      padding:
+                      EdgeInsets.only(top: 20.sp, left: 15.sp, right: 15.sp),
+                      child: Container(
+                        width: screenWidth,
+                        height: 15.h,
+                        decoration: BoxDecoration(
+                            shape: BoxShape.rectangle,
+                            borderRadius: BorderRadius.circular(8.0),
+                            color: Color(0xFFFFF1D4)),
+                        alignment: Alignment.center,
+                        child: Padding(
+                          padding: EdgeInsets.only(
+                              top: 20.sp,
+                              bottom: 20.sp,
+                              left: 20.sp,
+                              right: 20.sp),
+                          child: Container(
+                            height: 10.h,
+                            decoration: BoxDecoration(
+                                shape: BoxShape.rectangle,
+                                borderRadius: BorderRadius.circular(15.0),
+                                color: Color(0xFFFEFEFE)),
+                            child: DropdownButton(
+                              value: _selectedUnitValue,
+                              elevation: 10,
+                              style: TextStyle(color: Colors.black),
+                              onChanged: (String? value) {
+                                setState(() {
+                                  _selectedUnitValue = value!;
+                                  _checkUnits(_selectedUnitValue);
+                                });
+                              },
+                              isExpanded: true,
+                              padding: EdgeInsets.all(20.0.sp),
+                              iconEnabledColor: Color(0xFFFFBC57),
+                              iconSize: 35,
+                              underline: Container(),
+                              // Remove the underline
+                              dropdownColor: Colors.white,
+                              items: _allUnits.map((String value) {
+                                return DropdownMenuItem(
+                                  value: value,
+                                  child: Center(
+                                      child: FittedBox(
+                                        fit: BoxFit.scaleDown,
+                                        child: Text(value,
+                                            style: GoogleFonts.actor(
+                                                textStyle: TextStyle(
+                                                    fontSize: 20.sp),
+                                                fontWeight: FontWeight.bold)),
+                                      )),
+                                );
+                              }).toList(),
+                            ),
                           ),
                         ),
                       ),
                     ),
-                  ),
-                  Padding(
-                    padding:
-                        EdgeInsets.only(top: 20.sp, left: 15.sp, right: 15.sp),
-                    child: Column(
-                      children: [
-                        Container(
-                          width: screenWidth,
-                          height: 22.h,
-                          decoration: BoxDecoration(
-                              shape: BoxShape.rectangle,
-                              borderRadius: BorderRadius.circular(8.0),
-                              color: Color(0xFFFFF1D4)),
-                          alignment: Alignment.center,
-                          child: Padding(
-                            padding: EdgeInsets.only(
-                                top: 15.sp,
-                                bottom: 15.sp,
-                                left: 15.sp,
-                                right: 15.sp),
-                            child: Container(
-                              height: 26.h,
-                              decoration: BoxDecoration(
-                                  shape: BoxShape.rectangle,
-                                  borderRadius: BorderRadius.circular(15.0),
-                                  color: Color(0xFFFEFEFE)),
-                              child: Column(
-                                children: [
-                                  TextField(
-                                    controller: _controller1,
-                                    maxLines: 1,
-                                    textAlign: TextAlign.center,
-                                    keyboardType: TextInputType.number,
-                                    style: GoogleFonts.actor(
-                                      textStyle: TextStyle(
-                                        fontSize: 25.sp,
-                                      ),
-                                    ),
-                                  ),
-                                  Expanded(
-                                    child: DropdownButton(
-                                      value: _selectedSubUnitValue1,
-                                      elevation: 10,
-                                      style: TextStyle(color: Colors.black),
-                                      onChanged: (String? value) {
-                                        setState(() {
-                                          _selectedSubUnitValue1 = value!;
-                                          _controller2.text = '';
-                                        });
-                                      },
-                                      isExpanded: true,
-                                      padding: EdgeInsets.all(20.0.sp),
-                                      iconEnabledColor: Color(0xFFFFBC57),
-                                      iconSize: 35,
-                                      underline: Container(),
-                                      // Remove the underline
-                                      dropdownColor: Colors.white,
-                                      items: _currentList.map((String value) {
-                                        print(_currentList);
-                                        return DropdownMenuItem(
-                                          value: value,
-                                          child: Center(
-                                              child: Text(value,
-                                                  style: GoogleFonts.actor(
-                                                      textStyle: TextStyle(
-                                                          fontSize: 20.sp),
-                                                      fontWeight:
-                                                          FontWeight.bold))),
-                                        );
-                                      }).toList(),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(top: 20.sp),
-                          child: Container(
+                    Padding(
+                      padding:
+                      EdgeInsets.only(top: 20.sp, left: 15.sp, right: 15.sp),
+                      child: Column(
+                        children: [
+                          Container(
                             width: screenWidth,
-                            height: 22.h,
+                            height: 24.h,
                             decoration: BoxDecoration(
                                 shape: BoxShape.rectangle,
                                 borderRadius: BorderRadius.circular(8.0),
@@ -326,25 +264,36 @@ class _MyHomePageState extends State<MyHomePage> {
                                     color: Color(0xFFFEFEFE)),
                                 child: Column(
                                   children: [
-                                    TextField(
-                                      controller: _controller2,
-                                      maxLines: 1,
-                                      enabled: false,
-                                      textAlign: TextAlign.center,
-                                      keyboardType: TextInputType.number,
-                                      style: GoogleFonts.actor(
-                                        textStyle: TextStyle(
-                                            fontSize: 25.sp, color: Colors.red),
+                                    Container(
+                                      height: 11.h,
+                                      child: LayoutBuilder(
+                                        builder: (BuildContext context,
+                                            BoxConstraints constraints) {
+                                          double fontSize = constraints
+                                              .maxHeight *
+                                              0.4; // Adjust this factor as needed
+                                          return TextField(
+                                            controller: _controller1,
+                                            maxLines: 1,
+                                            textAlign: TextAlign.center,
+                                            keyboardType: TextInputType.number,
+                                            style: GoogleFonts.actor(
+                                              textStyle:TextStyle(
+                                                fontSize: fontSize,
+                                              ),
+                                            ),
+                                          );
+                                        },
                                       ),
                                     ),
                                     Expanded(
                                       child: DropdownButton(
-                                        value: _selectedSubUnitValue2,
+                                        value: _selectedSubUnitValue1,
                                         elevation: 10,
                                         style: TextStyle(color: Colors.black),
                                         onChanged: (String? value) {
                                           setState(() {
-                                            _selectedSubUnitValue2 = value!;
+                                            _selectedSubUnitValue1 = value!;
                                             _controller2.text = '';
                                           });
                                         },
@@ -356,15 +305,22 @@ class _MyHomePageState extends State<MyHomePage> {
                                         // Remove the underline
                                         dropdownColor: Colors.white,
                                         items: _currentList.map((String value) {
+                                          print(_currentList);
                                           return DropdownMenuItem(
                                             value: value,
                                             child: Center(
-                                                child: Text(value,
-                                                    style: GoogleFonts.actor(
-                                                        textStyle: TextStyle(
-                                                            fontSize: 20.sp),
-                                                        fontWeight:
-                                                            FontWeight.bold))),
+                                              child: FittedBox(
+                                                fit: BoxFit.scaleDown,
+                                                child:Text(value,
+                                                        style: GoogleFonts.actor(
+                                                            textStyle: TextStyle(
+                                                                fontSize: 20.sp,
+                                                                fontWeight: FontWeight
+                                                                    .bold)
+                                                        ),
+                                                    ),
+                                              ),
+                                            ),
                                           );
                                         }).toList(),
                                       ),
@@ -374,33 +330,127 @@ class _MyHomePageState extends State<MyHomePage> {
                               ),
                             ),
                           ),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.all(25.0.sp),
-                          child: ElevatedButton(
-                            child: Text(
-                              "calculate",
-                              style: GoogleFonts.actor(
-                                  textStyle: TextStyle(fontSize: 20.sp),
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.black),
-                            ),
-                            onPressed: _calculate,
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: Color(0xFFFFBC57),
-                              fixedSize: Size(200, 50),
-                              elevation: 12,
-                              shape: BeveledRectangleBorder(),
+                          Padding(
+                            padding: EdgeInsets.only(top: 20.sp),
+                            child: Container(
+                              width: screenWidth,
+                              height: 24.h,
+                              decoration: BoxDecoration(
+                                  shape: BoxShape.rectangle,
+                                  borderRadius: BorderRadius.circular(8.0),
+                                  color: Color(0xFFFFF1D4)),
+                              alignment: Alignment.center,
+                              child: Padding(
+                                padding: EdgeInsets.only(
+                                    top: 15.sp,
+                                    bottom: 15.sp,
+                                    left: 15.sp,
+                                    right: 15.sp),
+                                child: Container(
+                                  height: 26.h,
+                                  decoration: BoxDecoration(
+                                      shape: BoxShape.rectangle,
+                                      borderRadius: BorderRadius.circular(15.0),
+                                      color: Color(0xFFFEFEFE)),
+                                  child: Column(
+                                    children: [
+                                      Container(
+                                        height: 11.h,
+                                        child: LayoutBuilder(
+                                          builder: (BuildContext context,
+                                              BoxConstraints constraints) {
+                                            double fontSize = constraints
+                                                .maxHeight *
+                                                0.4; // Adjust this factor as needed
+                                            return TextField(
+                                              controller: _controller2,
+                                              maxLines: 1,
+                                              textAlign: TextAlign.center,
+                                              keyboardType: TextInputType.number,
+                                              style: GoogleFonts.actor(
+                                                textStyle: TextStyle(
+                                                fontSize: fontSize,
+                                                color: Colors.red,
+                                              ),
+                                              ),
+                                            );
+                                          },
+                                        ),
+                                      ),
+                                      Expanded(
+                                        child: DropdownButton(
+                                          value: _selectedSubUnitValue2,
+                                          elevation: 10,
+                                          style: TextStyle(color: Colors.black),
+                                          onChanged: (String? value) {
+                                            setState(() {
+                                              _selectedSubUnitValue2 = value!;
+                                              _controller2.text = '';
+                                            });
+                                          },
+                                          isExpanded: true,
+                                          padding: EdgeInsets.all(20.0.sp),
+                                          iconEnabledColor: Color(0xFFFFBC57),
+                                          iconSize: 35,
+                                          underline: Container(),
+                                          // Remove the underline
+                                          dropdownColor: Colors.white,
+                                          items: _currentList.map((String value) {
+                                            return DropdownMenuItem(
+                                              value: value,
+                                              child: Center(
+                                                child: FittedBox(
+                                                  fit: BoxFit.scaleDown,
+                                                  child: Text(value,
+                                                      style: GoogleFonts.actor(
+                                                          textStyle: TextStyle(
+                                                              fontSize: 20.sp,
+                                                              fontWeight:
+                                                              FontWeight
+                                                                  .bold))),
+                                                ),
+                                              ),
+                                            );
+                                          }).toList(),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
                             ),
                           ),
-                        )
-                      ],
+                          Padding(
+                            padding: EdgeInsets.all(25.0.sp),
+                            child: ElevatedButton(
+                              child: FittedBox(
+                                fit: BoxFit.scaleDown,
+                                child: Text(
+                                  "calculate",
+                                  style: GoogleFonts.actor(
+                                    textStyle: TextStyle(
+                                        fontSize: 20.sp,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.black),
+                                  ),
+                                ),
+                              ),
+                              onPressed: _calculate,
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Color(0xFFFFBC57),
+                                fixedSize: Size(200, 50),
+                                elevation: 12,
+                                shape: BeveledRectangleBorder(),
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
                     ),
-                  ),
-                ]),
+                  ]),
+            ),
           ),
         ),
-      ),
     );
   }
 
@@ -666,32 +716,28 @@ class _MyHomePageState extends State<MyHomePage> {
       if (_selectedSubUnitValue1 == 'Degree Celsius') {
         switch (_selectedSubUnitValue2) {
           case 'Fahrenheit':
-            finalAns = (inputValue * (9/5)) + 32;
+            finalAns = (inputValue * (9 / 5)) + 32;
             break;
           case 'Kelvin':
             finalAns = inputValue + 273.15;
             break;
         }
-      }
-
-      else if (_selectedSubUnitValue1 == 'Fahrenheit') {
+      } else if (_selectedSubUnitValue1 == 'Fahrenheit') {
         switch (_selectedSubUnitValue2) {
           case 'Degree Celsius':
-            finalAns = (inputValue - 32) * (5/9);
+            finalAns = (inputValue - 32) * (5 / 9);
             break;
           case 'Kelvin':
-            finalAns = (inputValue - 32) * (5/9) + 273.15;
+            finalAns = (inputValue - 32) * (5 / 9) + 273.15;
             break;
         }
-      }
-
-      else if (_selectedSubUnitValue1 == 'Kelvin') {
+      } else if (_selectedSubUnitValue1 == 'Kelvin') {
         switch (_selectedSubUnitValue2) {
           case 'Degree Celsius':
             finalAns = inputValue - 273.15;
             break;
           case 'Fahrenheit':
-            finalAns = (inputValue - 273.15) * (9/5) + 32;
+            finalAns = (inputValue - 273.15) * (9 / 5) + 32;
             break;
         }
       }
@@ -713,7 +759,7 @@ class _MyHomePageState extends State<MyHomePage> {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content:
-            Text(message, style: TextStyle(color: Colors.red, fontSize: 18.sp)),
+        Text(message, style: TextStyle(color: Colors.red, fontSize: 18.sp)),
         backgroundColor: Color(0xFFFFF1D4),
       ),
     );
