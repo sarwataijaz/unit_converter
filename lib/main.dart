@@ -102,11 +102,6 @@ class _MyHomePageState extends State<MyHomePage> {
       _controller2.text = '';
     });
 
-    print("List: $_currentList");
-    _selectedSubUnitValue1 = _currentList[0];
-    print(_selectedSubUnitValue1);
-    _selectedSubUnitValue2 = _currentList[1];
-    print(_selectedSubUnitValue2);
   }
 
   String recentlyTyped = '';
@@ -116,7 +111,6 @@ class _MyHomePageState extends State<MyHomePage> {
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
 
-    print("Start: $_currentList");
     return Scaffold(
       backgroundColor: Color(0xFFFEDD9E),
       body: SingleChildScrollView(
@@ -125,7 +119,7 @@ class _MyHomePageState extends State<MyHomePage> {
           width: screenWidth,
           height: screenHeight,
           child: Padding(
-            padding: EdgeInsets.only(top: 25.sp, left: 15.sp, right: 15.sp),
+            padding: EdgeInsets.only(top: 30.sp, left: 15.sp, right: 15.sp),
             child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
@@ -174,14 +168,6 @@ class _MyHomePageState extends State<MyHomePage> {
                           ),
                         ])),
                       ),
-                      // Padding(
-                      //   padding: EdgeInsets.only(left: 12.0.sp),
-                      //   child: Image.asset(
-                      //     'assets/iconsssss.png',
-                      //     height: 10.h,
-                      //     width: 10.w,
-                      //   ),
-                      // ),
                     ],
                   ),
                   Padding(
